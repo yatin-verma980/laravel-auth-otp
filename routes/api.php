@@ -5,8 +5,8 @@ use App\Http\Controllers\AuthController;
 
 Route::prefix('login')->group(function () {
     Route::post('register', [AuthController::class, 'register']);
-    Route::post('generateOTP', [AuthController::class, 'generateOTP']);
-    Route::post('verifyOTP', [AuthController::class, 'verifyOTP']);
+    Route::post('generate-otp', [AuthController::class, 'generateOTP']);
+    Route::post('verify-otp', [AuthController::class, 'verifyOTP']);
 });
 
 Route::prefix('password')->group(function () {

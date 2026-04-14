@@ -45,9 +45,7 @@ class AuthController extends Controller
         ]);
 
         return response()->json([
-            'message' => 'User registered successfully',
-            'email_otp' => $emailOtp,
-            'mobile_otp' => $mobileOtp
+            'message' => 'User registered successfully'
         ], 201);
     }
 
@@ -70,7 +68,7 @@ class AuthController extends Controller
 
             Otp::updateOrCreate(
                 ['email' => $request->email],
-                ['otp' => $otp, 'expires_at' => $expiresAt, 'is_used' => false]
+                ['otp' => $otp, 'expires_at' => $expiresAt, 'is_used' => false, 'attempts' => 0]
             );
         }
 
@@ -82,13 +80,12 @@ class AuthController extends Controller
 
             Otp::updateOrCreate(
                 ['mobile' => $request->mobile],
-                ['otp' => $otp, 'expires_at' => $expiresAt, 'is_used' => false]
+                ['otp' => $otp, 'expires_at' => $expiresAt, 'is_used' => false, 'attempts' => 0]
             );
         }
 
         return response()->json([
-            'message' => 'OTP generated',
-            'otp' => $otp
+            'message' => 'OTP generated'
         ]);
     }
 
