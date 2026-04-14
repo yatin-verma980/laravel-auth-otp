@@ -30,7 +30,7 @@ class AuthController extends Controller
         $now = now();
 
         $emailOtp = rand(100000, 999999);
-        $mobileOtp = rand(100000, 999999);`
+        $mobileOtp = rand(100000, 999999);
 
         Otp::create([
             'email' => $user->email,
